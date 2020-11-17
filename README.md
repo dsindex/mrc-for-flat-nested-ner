@@ -64,7 +64,7 @@
   DATA_DIR="corpus/conll03"
   BERT_DIR="bert-large-cased-whole-word-masking-finetuned-squad"
 
-  LR=8e-5
+  LR=3e-5
   BATCH_SIZE=16
   MAX_EPOCHS=20
 
