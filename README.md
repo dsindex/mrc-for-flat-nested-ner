@@ -77,7 +77,7 @@
   - evaluate
   ```
   * edit `evaluate.py`
-  CHECKPOINTS = "output/'epoch=16_v0.ckpt'"
+  CHECKPOINTS = "output/epoch=16_v0.ckpt"
   HPARAMS = "output/lightning_logs/version_0/hparams.yaml"
 
   $ python evaluate.py
