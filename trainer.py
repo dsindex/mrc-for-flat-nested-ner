@@ -292,7 +292,7 @@ class BertLabeling(pl.LightningModule):
         json_path = os.path.join(self.data_dir, f"mrc-ner.{prefix}")
         vocab_path = os.path.join(self.bert_dir, "vocab.txt")
         dataset = MRCNERDataset(json_path=json_path,
-                                tokenizer=BertWordPieceTokenizer(vocab_file=vocab_path),
+                                tokenizer=BertWordPieceTokenizer.from_file(vocab_path),
                                 max_length=self.args.max_length,
                                 is_chinese=self.chinese,
                                 pad_to_maxlen=False
@@ -329,7 +329,7 @@ def run_dataloader():
 
     model = BertLabeling(args)
     from tokenizers import BertWordPieceTokenizer
-    tokenizer = BertWordPieceTokenizer(os.path.join(args.bert_config_dir, "vocab.txt"))
+    tokenizer = BertWordPieceTokenizer.from_file(os.path.join(args.bert_config_dir, "vocab.txt"))
 
     loader = model.get_dataloader("dev", limit=1000)
     for d in loader:
