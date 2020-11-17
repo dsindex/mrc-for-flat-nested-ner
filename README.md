@@ -1,3 +1,20 @@
+# MRC as NER
+
+- CoNLL2003
+  - setting
+  ```
+  DATA_DIR="corpus/conll03"
+  BERT_DIR="bert-large-cased-whole-word-masking-finetuned-squad"
+  OUTPUT_DIR="output"
+  ```
+  - run
+  ```
+  $ ./conll03.sh
+  ```
+
+
+----
+
 # A Unified MRC Framework for Named Entity Recognition 
 The repository contains the code of the recent research advances in [Shannon.AI](http://www.shannonai.com). 
 

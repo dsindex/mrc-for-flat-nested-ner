@@ -24,6 +24,7 @@ def evaluate(ckpt, hparams_file):
 
 
 if __name__ == '__main__':
+    '''
     # ace04
     HPARAMS = "/mnt/mrc/train_logs/ace2004/ace2004_20200911reproduce_epoch15_lr3e-5_drop0.3_norm1.0_bsz32_hard_span_weight0.1_warmup0_maxlen128_newtrunc_debug/lightning_logs/version_0/hparams.yaml"
     CHECKPOINTS = "/mnt/mrc/train_logs/ace2004/ace2004_20200911reproduce_epoch15_lr3e-5_drop0.3_norm1.0_bsz32_hard_span_weight0.1_warmup0_maxlen128_newtrunc_debug/epoch=10_v0.ckpt"
@@ -41,6 +42,9 @@ if __name__ == '__main__':
     # zh_msra
     CHECKPOINTS = "/mnt/mrc/train_logs/zh_msra/zh_msra_20200911_for_flat_debug/epoch=2_v1.ckpt"
     HPARAMS = "/mnt/mrc/train_logs/zh_msra/zh_msra_20200911_for_flat_debug/lightning_logs/version_2/hparams.yaml"
+    '''
 
-
+    # conll03
+    CHECKPOINTS = "output/'epoch=0_v0.ckpt'"
+    HPARAMS = "output/lightning_logs/version_1/hparams.yaml"
     evaluate(ckpt=CHECKPOINTS, hparams_file=HPARAMS)
