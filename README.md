@@ -64,14 +64,8 @@
   DATA_DIR="corpus/conll03"
   BERT_DIR="bert-large-cased-whole-word-masking-finetuned-squad"
 
-  BERT_DROPOUT=0.1
-  MRC_DROPOUT=0.3
-  LR=3e-5
-  SPAN_WEIGHT=0.1
-  WARMUP=0
-  MAXLEN=128
-  MAXNORM=1.0
-  BATCH_SIZE=4
+  LR=8e-5
+  BATCH_SIZE=16
   MAX_EPOCHS=20
 
   OUTPUT_DIR="output"

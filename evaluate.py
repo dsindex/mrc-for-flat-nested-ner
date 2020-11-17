@@ -45,6 +45,6 @@ if __name__ == '__main__':
     '''
 
     # conll03
-    CHECKPOINTS = "output/'epoch=16_v0.ckpt'"
+    CHECKPOINTS = "output/epoch=16_v0.ckpt"
     HPARAMS = "output/lightning_logs/version_1/hparams.yaml"
     evaluate(ckpt=CHECKPOINTS, hparams_file=HPARAMS)

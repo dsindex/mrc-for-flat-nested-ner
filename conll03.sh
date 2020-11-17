@@ -4,12 +4,12 @@ DATA_DIR="corpus/conll03"
 BERT_DIR="bert-large-cased-whole-word-masking-finetuned-squad"
 BERT_DROPOUT=0.1
 MRC_DROPOUT=0.3
-LR=3e-5
+LR=8e-5
 SPAN_WEIGHT=0.1
 WARMUP=0
 MAXLEN=128
 MAXNORM=1.0
-BATCH_SIZE=4
+BATCH_SIZE=16
 MAX_EPOCHS=20
 
 OUTPUT_DIR="output"
@@ -20,7 +20,7 @@ python trainer.py \
 --bert_config_dir $BERT_DIR \
 --max_length $MAXLEN \
 --batch_size $BATCH_SIZE \
---gpus="1" \
+--gpus="0,1" \
 --precision=16 \
 --progress_bar_refresh_rate 1 \
 --lr $LR \
@@ -31,8 +31,9 @@ python trainer.py \
 --mrc_dropout $MRC_DROPOUT \
 --bert_dropout $BERT_DROPOUT \
 --max_epochs $MAX_EPOCHS \
---span_loss_candidates "pred_and_gold" \
+--span_loss_candidates "gold" \
 --weight_span $SPAN_WEIGHT \
 --warmup_steps $WARMUP \
 --max_length $MAXLEN \
---gradient_clip_val $MAXNORM
+--gradient_clip_val $MAXNORM \
+--flat
