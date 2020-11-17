@@ -21,7 +21,7 @@ python trainer.py \
 --max_length $MAXLEN \
 --batch_size $BATCH_SIZE \
 --gpus="0,1" \
---precision=32 \
+--precision=16 \
 --progress_bar_refresh_rate 1 \
 --lr $LR \
 --distributed_backend=ddp \
