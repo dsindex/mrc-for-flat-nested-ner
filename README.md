@@ -1,15 +1,92 @@
 # MRC as NER
 
 - CoNLL2003
-  - setting
+  - training data sample
+  ```
+  {
+    "context": "EU rejects German call to boycott British lamb .",
+    "end_position": [
+      0
+    ],
+    "entity_label": "ORG",
+    "impossible": false,
+    "qas_id": "0.1",
+    "query": "organization entities are limited to named corporate, governmental, or other organizational entities.",
+    "span_position": [
+      "0;0"
+    ],
+    "start_position": [
+      0
+    ]
+  },
+  {
+    "context": "EU rejects German call to boycott British lamb .",
+    "end_position": [],
+    "entity_label": "PER",
+    "impossible": true,
+    "qas_id": "0.2",
+    "query": "person entities are named persons or family.",
+    "span_position": [],
+    "start_position": []
+  },
+  {
+    "context": "EU rejects German call to boycott British lamb .",
+    "end_position": [],
+    "entity_label": "LOC",
+    "impossible": true,
+    "qas_id": "0.3",
+    "query": "location entities are the name of politically or geographically defined locations such as cities, provinces, countries, international regions, bodies of water, mountains, etc.",
+    "span_position": [],
+    "start_position": []
+  },
+  {
+    "context": "EU rejects German call to boycott British lamb .",
+    "end_position": [
+      2,
+      6
+    ],
+    "entity_label": "MISC",
+    "impossible": false,
+    "qas_id": "0.4",
+    "query": "examples of miscellaneous entities include events, nationalities, products and works of art.",
+    "span_position": [
+      "2;2",
+      "6;6"
+    ],
+    "start_position": [
+      2,
+      6
+    ]
+  },
+  ```
+  - edit `conll03.sh`
   ```
   DATA_DIR="corpus/conll03"
   BERT_DIR="bert-large-cased-whole-word-masking-finetuned-squad"
+
+  BERT_DROPOUT=0.1
+  MRC_DROPOUT=0.3
+  LR=3e-5
+  SPAN_WEIGHT=0.1
+  WARMUP=0
+  MAXLEN=128
+  MAXNORM=1.0
+  BATCH_SIZE=4
+  MAX_EPOCHS=20
+
   OUTPUT_DIR="output"
   ```
-  - run
+  - train
   ```
   $ ./conll03.sh
+  ```
+  - evaluate
+  ```
+  * edit `evaluate.py`
+  CHECKPOINTS = "output/'epoch=16.ckpt'"
+  HPARAMS = "output/lightning_logs/version_1/hparams.yaml"
+
+  $ python evaluate.py
   ```
 
 
