@@ -81,6 +81,10 @@
   HPARAMS = "output/lightning_logs/version_0/hparams.yaml"
 
   $ python evaluate.py
+   {'span_f1': tensor(0.8939, device='cuda:0'),
+    'span_precision': tensor(0.9014, device='cuda:0'),
+    'span_recall': tensor(0.8865, device='cuda:0'),
+    'val_loss': tensor(0.0882, device='cuda:0')}
   ```
 
 
